@@ -206,7 +206,7 @@ Muda o link para o novo script e reinicia o serviço
 	sudo systemctl reload nginx
 
 ### CERTIFICADO 
-###### Aqui precisa de uma revisão melhor, pois este certificado apresenta erro ao se atualizar para subdominios
+###### Caso o projeto venha fazer uso de subdominios é recomendado não utilizar essa opção pois ao tentar atualizar o certificado do subdominio pode vim apresentar erros
 *(baseado no link: https://www.linuxtuto.com/how-to-secure-nginx-with-lets-encrypt-on-ubuntu-22-04/)*
 
 	apt install certbot python3-certbot-nginx
