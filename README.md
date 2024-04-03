@@ -1,6 +1,6 @@
 # Servidor web para Laravel
 Esse tutorial tem como proposta fornecer um 'norte' no momento de configurar um servidor dedicado LINUX para uma aplicação Laravel.
-**Esse tutorial utilizou como base o sistema Ubuntu 22.04**
+**Foi utilizado como base o sistema Ubuntu 22.04**
 
 Tecnologias utilizadas
 1. Composer
