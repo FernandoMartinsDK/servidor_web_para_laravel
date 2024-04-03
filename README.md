@@ -1,5 +1,5 @@
 # Servidor web para Laravel
-Esse tutorial tem como proposta fornecer um 'norte' no momento de configurar um servidor LINUX para que venha a servir como servidor web dedicado Laravel.
+Esse tutorial tem como proposta fornecer um 'norte' no momento de configurar um servidor dedicado LINUX para uma aplicação Laravel.
 **Esse tutorial utilizou como base o sistema Ubuntu 22.04**
 
 Tecnologias utilizadas
