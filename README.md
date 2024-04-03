@@ -134,7 +134,7 @@ Vá até a pasta onde será adicionado o projeto
 Baixe o projeto do gitbub
 
 	git clone git@github.com:usuario/meu-projeto-laravel.git projeto
-	cd ponto
+	cd projeto
 
 Prepa os arquivos da aplicação
 
