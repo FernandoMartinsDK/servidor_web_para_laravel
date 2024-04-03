@@ -206,7 +206,7 @@ Muda o link para o novo script e reinicia o serviço
 	sudo systemctl reload nginx
 
 ### CERTIFICADO 
-###### Caso o projeto venha fazer uso de subdominios é recomendado não utilizar essa opção pois ao tentar atualizar o certificado do subdominio pode vim apresentar erros
+###### Caso o projeto venha fazer uso de sub dominios é recomendado não utilizar essa opção pois ao tentar atualizar o certificado do subdominio pode vim apresentar erros
 *(baseado no link: https://www.linuxtuto.com/how-to-secure-nginx-with-lets-encrypt-on-ubuntu-22-04/)*
 
 	apt install certbot python3-certbot-nginx
@@ -239,5 +239,5 @@ Para atualizar o código
 
 	git pull --rebase --autostash
 
->Existe diversas formas de atualizar o código do servidor, formas mais manuais como FTP a outras automatizadas utilizandos webhook ou GitHub Actions. A forma informada aqui é uma das mais simples e seguras mas existem *melhores* opções.
+>Existem diversas formas de atualizar o código do servidor, formas mais manuais como FTP a outras automatizadas utilizandos webhook ou GitHub Actions. A forma informada aqui é uma das mais simples e seguras mas existem *melhores* opções.
 
