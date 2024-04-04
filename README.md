@@ -100,7 +100,8 @@ Instala composer mais atual
 	php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 	sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
-Verifica se foi instalado com sucesso
+Verifica se foi instalado com sucesso com o comando
+
 	composer
 
 ### Git
