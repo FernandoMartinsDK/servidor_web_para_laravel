@@ -54,8 +54,8 @@ libera gravação e acesso de aplicativos acendo o arquivo de configuração em:
 Na linha que esta escrito " bind-address = 127.0.0.1 " mude para " bind-address = 0.0.0.0 ". Salve a modificação e sai do arquivo
 
 Para se criar um usuário que possa acessar de qualquer host e fazer modificações no banco
-mysql
 
+    mysql
     CREATE USER 'administrator'@'%' IDENTIFIED BY 'SenhaSecreta';
     GRANT ALL PRIVILEGES ON *.* TO 'administrator'@'%' WITH GRANT OPTION;
     FLUSH PRIVILEGES;
