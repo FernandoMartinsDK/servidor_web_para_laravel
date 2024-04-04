@@ -231,7 +231,7 @@ verifica se a cron está funcionando
 ### ATUALIZAR O CÓDIGO
 Para atualizar o código do projeto  vá na pasta do sistema
 
-	cd /var/www/ponto
+	cd /var/www/projeto
 Para atualizar o código 
 
 	git pull
