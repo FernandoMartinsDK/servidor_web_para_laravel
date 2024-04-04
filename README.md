@@ -165,6 +165,7 @@ Editar os atributos do `.env`
 
 ### NGNIX
 Adiciona as portas ao firewall
+
 	sudo ufw app list
 	sudo ufw allow 'Nginx HTTP'
 	sudo ufw allow 'Nginx HTTPS'
