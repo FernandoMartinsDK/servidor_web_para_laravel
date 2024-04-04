@@ -128,6 +128,11 @@ Basta ir apertando enter para para ir pulando as perguntas, por padrão o par de
 
 No github do projeto vá no `Settings` do projeto e procure por `Deploy Keys` na categoria de `Security`, então clique em `Add deploy key`. De um nome para a chave e cole ela
 
+### NGNIX
+Instala o servidor web
+
+	apt install nginx
+
 ###### Adiciona o projeto laravel
 Vá até a pasta onde será adicionado o projeto
 
@@ -159,9 +164,6 @@ Editar os atributos do `.env`
 	DB_PASSWORD='SenhaSecreta'
 
 ### NGNIX
-Instala o servidor web
-	apt install nginx
-
 Adiciona as portas ao firewall
 	sudo ufw app list
 	sudo ufw allow 'Nginx HTTP'
