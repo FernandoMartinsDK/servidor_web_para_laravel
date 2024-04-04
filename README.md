@@ -234,6 +234,7 @@ Muda o link para o novo script e reinicia o serviço
 ### ATIVA O CRON DO SISTEMA
 	nano /etc/crontab
 Na ultima linha adicione (deixe tudo alinhado dando os espaços necessarios)
+
     * * * * *  root  cd /var/www/projeto && php artisan schedule:run >> /dev/null 2>&1
 verifica se a cron está funcionando
 
