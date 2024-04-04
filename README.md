@@ -21,10 +21,10 @@ Verifica qual é a versão do sistema
 	lsb_release -a
 Atualiza os pacotes:
 
-	apt get update
+	apt-get update
 Instala nova versão dos pacotes
 
-	apt get upgrade
+	apt-get upgrade
 
 ### Definindo fuso horario
 	timedatectl set-timezone America/Sao_Paulo
