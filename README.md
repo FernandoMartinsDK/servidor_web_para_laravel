@@ -142,6 +142,7 @@ Prepa os arquivos da aplicação
 	composer install
 	php artisan key:generate
 	php artisan storage:link
+Editar os atributos do `.env` que forem necessário
 
 ### NGNIX
 Instala o servidor web
