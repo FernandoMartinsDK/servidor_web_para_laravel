@@ -1,3 +1,4 @@
+
 # Servidor web para Laravel
 Esse tutorial tem como proposta fornecer um 'norte' no momento de configurar um servidor dedicado LINUX para uma aplicação Laravel.
 
@@ -142,7 +143,19 @@ Prepa os arquivos da aplicação
 	composer install
 	php artisan key:generate
 	php artisan storage:link
-Editar os atributos do `.env` que forem necessário
+Editar os atributos do `.env`
+	
+	APP_NAME=PROJETO
+	APP_DEBUG=false
+	APP_ENV=production
+	APP_URL=https://www.projeto.com.br
+
+	DB_HOST=127.0.0.1
+	DB_READ=127.0.0.1
+	DB_PORT=3306
+	DB_DATABASE=db-projeto
+	DB_USERNAME=administrator
+	DB_PASSWORD='SenhaSecreta'
 
 ### NGNIX
 Instala o servidor web
@@ -241,4 +254,3 @@ Para atualizar o código
 	git pull --rebase --autostash
 
 >Existem diversas formas de atualizar o código do servidor, formas mais manuais como FTP a outras automatizadas utilizandos webhook ou GitHub Actions. A forma informada aqui é uma das mais simples e seguras mas existem *melhores* opções.
-
