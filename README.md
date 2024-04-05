@@ -280,7 +280,7 @@ Vá até a pasta da aplicação
 	
 Instale os pacotes
 
-	npm run install
+	npm install
 	
 'Compila' o código utilizando o vite
 
