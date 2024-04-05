@@ -11,8 +11,7 @@ Tecnologias utilizadas
 4. Node Js
 5. PHP 8.3
 6. Git
-7. ~~Redis~~ (*em breve*)
-
+7. Redis *(revisar)*
 
 > Durante o tutorial você irá se deparar com termos como `projeto` fazendo referencia ao nome do seu projeto, atente-se aos pontos que contem esses nomes genéricos que são utilizados meramente de forma ilustrativa, troque ou faça ajustes sempre que julgar melhor.
 
@@ -64,6 +63,7 @@ Para se criar um usuário que possa acessar de qualquer host e fazer modificaç�
 Atualiza o serviço do MySql
 
 	/etc/init.d/mysql restart
+
 ### PHP 8.3
 Adiciona o repositorio
 
@@ -104,6 +104,50 @@ Instala composer mais atual
 Verifica se foi instalado com sucesso com o comando
 
 	composer
+
+### Redis
+Para instalar o Redis local basta ir copiando e colando as seguintes linhas
+```bash
+curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+
+sudo apt-get update
+sudo apt-get install redis
+```
+Para testar o redis executar o comando 
+	
+	redis-cli ping
+O retorno deve ser : 
+```
+PONG
+```
+Instalar extensão do PHP 8.3
+
+	sudo apt-get install php8.3-redis
+Reinicia o serviço
+	
+	service php8.3-fpm restart
+
+Adiciona o pacote pacote para usar o Laravel pode se conectar 
+	
+	composer require  predis/predis
+
+Abra o .env
+
+	nano /var/www/projeto/.env
+
+Altere os seguintes parametros para o seguinte
+```
+QUEUE_CONNECTION=redis
+CACHE_DRIVER=redis  
+SESSION_DRIVER=redis
+BROADCAST_DRIVER=redis
+```
+Caso o servidor seja reiniciado pode ser necessario inicializar novamente o serviço
+```
+redis-server --daemonize yes
+```
 
 ### Git
 Instala o git
