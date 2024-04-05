@@ -223,14 +223,26 @@ Muda o link para o novo script e verifica se tem algum erro
 	sudo ln -s /etc/nginx/sites-available/projeto /etc/nginx/sites-enabled/
 	sudo nginx -t
 
-###### Para liberar criação de sub dominios
+###### Para liberar  e criar  sub dominios
 Acessar o arquivo
 
 	nano /etc/nginx/nginx.conf
 
 Remova `#` para descomentar o comando `**server_names_hash_bucket_size 64**;`
 
-No final reinicie o serviço
+Caso o novo sub dominio aponte para o **mesmo** projeto basta ir no arquivo de configuração de dominio
+
+	nano /etc/nginx/sites-available/projeto
+Adicione o novo sub dominio em na linha `server_name`, ficando:
+`server_name DOMINIO_DO_SITE SUB_DOMINIO_DO_SITE`
+Caso tenha outro sub dominio para adicionar basta dar um espaço e adicionar
+
+Para finalizar vá no arquivo de host
+
+	nano /etc/hosts	
+Adicione o subdominio: `127.0.0.1 admin.example.local`
+	
+Reinicie o serviço
 
 	sudo systemctl reload nginx
 
