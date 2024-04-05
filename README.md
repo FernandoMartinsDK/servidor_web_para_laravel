@@ -233,6 +233,22 @@ No final reinicie o serviço
 
 	sudo systemctl reload nginx
 
+### NODE JS
+###### a instalação foi baseado nesse [link](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04)
+Vamos instalar o nodejs utilizando um gerenciador de versão
+	
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+	source ~/.bashrc
+Para ver as versões disponiveis utilize o comando
+
+	nvm list-remote
+
+Para instalar a versão que deseja utilize o comando + versão. Como por exemplo
+
+	nvm install v20.12.1
+
+>Para diminuir a necessidade de manutenção procure sempre dar preferencia a última versão LTS disponivel
+
 ### CERTIFICADO 
 ###### Caso o projeto venha fazer uso de sub dominios é recomendado não utilizar essa opção pois ao tentar atualizar o certificado do subdominio pode vim apresentar erros
 *(baseado no link: https://www.linuxtuto.com/how-to-secure-nginx-with-lets-encrypt-on-ubuntu-22-04/)*
@@ -256,6 +272,19 @@ verifica se a cron está funcionando
 *Caso apresente mensagem de erro é preciso ativar*
 
 	service cron start
+###### Compilando o código o código
+Apesar de não ser obrigatório é sempre recomendado fazer o 'build' do seu front-end, seja utilizando o mix ou o vite.
+Vá até a pasta da aplicação 
+
+	cd /var/www/projeto
+	
+Instale os pacotes
+
+	npm run install
+	
+'Compila' o código utilizando o vite
+
+	npm run build
 
 ### ATUALIZAR O CÓDIGO
 Para atualizar o código do projeto  vá na pasta do sistema
