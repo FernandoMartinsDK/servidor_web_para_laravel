@@ -8,7 +8,7 @@ Tecnologias utilizadas
 1. Composer
 2. NGNIX
 3. MySql
-4. Node (*não adicionado*)
+4. Node
 5. PHP 8.3
 6. Git
 
