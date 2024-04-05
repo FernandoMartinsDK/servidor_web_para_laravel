@@ -217,10 +217,20 @@ Cole o script:
 		}
 	}
 
-Muda o link para o novo script e reinicia o serviço
+Muda o link para o novo script e verifica se tem algum erro
 
 	sudo ln -s /etc/nginx/sites-available/projeto /etc/nginx/sites-enabled/
 	sudo nginx -t
+
+###### Para liberar criação de sub dominios
+Acessar o arquivo
+
+	nano /etc/nginx/nginx.conf
+
+Remova `#` para descomentar o comando `**server_names_hash_bucket_size 64**;`
+
+No final reinicie o serviço
+
 	sudo systemctl reload nginx
 
 ### CERTIFICADO 
