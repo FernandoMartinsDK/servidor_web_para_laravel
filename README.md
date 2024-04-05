@@ -8,7 +8,7 @@ Tecnologias utilizadas
 1. Composer
 2. NGNIX
 3. MySql
-4. Node
+4. Node (*não adicionado*)
 5. PHP 8.3
 6. Git
 
@@ -249,6 +249,20 @@ Para instalar a versão que deseja utilize o comando + versão. Como por exemplo
 
 >Para diminuir a necessidade de manutenção procure sempre dar preferencia a última versão LTS disponivel
 
+###### Compilando o código o código
+Apesar de não ser obrigatório é sempre recomendado fazer o 'build' do seu front-end, seja utilizando o mix ou o vite.
+Vá até a pasta da aplicação 
+
+	cd /var/www/projeto
+	
+Instale os pacotes
+
+	npm install
+	
+'Compila' o código utilizando o vite
+
+	npm run build
+
 ### CERTIFICADO 
 ###### Caso o projeto venha fazer uso de sub dominios é recomendado não utilizar essa opção pois ao tentar atualizar o certificado do subdominio pode vim apresentar erros
 *(baseado no link: https://www.linuxtuto.com/how-to-secure-nginx-with-lets-encrypt-on-ubuntu-22-04/)*
@@ -272,19 +286,6 @@ verifica se a cron está funcionando
 *Caso apresente mensagem de erro é preciso ativar*
 
 	service cron start
-###### Compilando o código o código
-Apesar de não ser obrigatório é sempre recomendado fazer o 'build' do seu front-end, seja utilizando o mix ou o vite.
-Vá até a pasta da aplicação 
-
-	cd /var/www/projeto
-	
-Instale os pacotes
-
-	npm install
-	
-'Compila' o código utilizando o vite
-
-	npm run build
 
 ### ATUALIZAR O CÓDIGO
 Para atualizar o código do projeto  vá na pasta do sistema
