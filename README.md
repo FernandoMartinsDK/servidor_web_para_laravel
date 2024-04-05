@@ -8,9 +8,10 @@ Tecnologias utilizadas
 1. Composer
 2. NGNIX
 3. MySql
-4. Node (*não adicionado*)
+4. Node Js
 5. PHP 8.3
 6. Git
+7. ~~Redis~~ (*em breve*)
 
 
 > Durante o tutorial você irá se deparar com termos como `projeto` fazendo referencia ao nome do seu projeto, atente-se aos pontos que contem esses nomes genéricos que são utilizados meramente de forma ilustrativa, troque ou faça ajustes sempre que julgar melhor.
