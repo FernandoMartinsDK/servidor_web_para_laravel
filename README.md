@@ -141,7 +141,7 @@ Altere os seguintes parametros para o seguinte
 ```
 QUEUE_CONNECTION=redis
 CACHE_DRIVER=redis  
-SESSION_DRIVER=redis
+SESSION_DRIVER=redis (dando erro)
 BROADCAST_DRIVER=redis
 ```
 Caso o servidor seja reiniciado pode ser necessario inicializar novamente o serviço
