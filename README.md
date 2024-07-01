@@ -80,9 +80,9 @@ Instala o PHP e as extensões referente
 
 mudar os seguintes parâmetros
 
-    upload_max_filesize = 32M 
-    post_max_size = 48M 
-    memory_limit = 256M 
+    upload_max_filesize = 256M 
+    post_max_size = 256M 
+    memory_limit = 3072M 
     max_execution_time = 600 
     max_input_vars = 3000 
     max_input_time = 1000
