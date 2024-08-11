@@ -232,6 +232,7 @@ Cole o script:
 		listen 80;
 		server_name IP_DO_SERVIDOR DOMINIO_DO_SITE ;
 		root /var/www/projeto/public;
+		client_max_body_size 0;
 
 		add_header X-Frame-Options "SAMEORIGIN";
 		add_header X-XSS-Protection "1; mode=block";
