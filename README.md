@@ -357,3 +357,8 @@ Para atualizar o código
 	git pull --rebase --autostash
 
 >Existem diversas formas de atualizar o código do servidor, formas mais manuais como FTP a outras automatizadas utilizandos webhook ou GitHub Actions. A forma informada aqui é uma das mais simples e seguras mas existem *melhores* opções.
+
+### Comandos uteis
+Para ver todos os serviços que estão sendo executados
+
+	service --status-all
