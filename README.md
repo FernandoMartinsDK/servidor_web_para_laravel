@@ -171,7 +171,15 @@ Basta ir apertando enter para para ir pulando as perguntas, por padrão o par de
 
 	cat .ssh/id_rsa.pub
 
+"Ativa" a chave publica 
+
+	eval "$(ssh-agent -s)"
+	ssh-add ~/.ssh/id_ed25519
+	cat ~/.ssh/id_ed25519.pub >> ~/.authorized_keys
+
 No github do projeto vá no `Settings` do projeto e procure por `Deploy Keys` na categoria de `Security`, então clique em `Add deploy key`. De um nome para a chave e cole ela
+
+
 
 ### NGNIX
 Instala o servidor web
