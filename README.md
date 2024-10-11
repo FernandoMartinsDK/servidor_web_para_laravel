@@ -158,7 +158,7 @@ Instala o git
 *(Baseado no link https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04-pt)*
 O primeiro passo é criar uma par de chaves na máquina do cliente
 
-	ssh-keygen
+	ssh-keygen -t rsa -b 4096 -C "seuEmail"
 
 Por padrão, as versões mais recentes do ssh-keygen criarão um par de chaves RSA de 3072 bits, que é seguro o suficiente para a maioria dos casos de uso (você pode usar o sinalizador `-b 4096` para criar uma chave maior de 4096 bits).
 Após digitar o comando, você deve ver o seguinte resultado:
