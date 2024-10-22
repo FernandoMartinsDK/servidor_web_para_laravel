@@ -1,4 +1,3 @@
-
 # Servidor web para Laravel
 Esse tutorial tem como proposta fornecer um 'norte' no momento de configurar um servidor dedicado LINUX para uma aplicação Laravel.
 
