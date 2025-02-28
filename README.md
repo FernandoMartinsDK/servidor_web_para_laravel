@@ -8,7 +8,7 @@ Tecnologias utilizadas
 2. NGNIX
 3. MySql
 4. Node Js
-5. PHP 8.3
+5. PHP 8.4
 6. Git
 7. Redis *(revisar)*
 
@@ -63,7 +63,7 @@ Atualiza o serviço do MySql
 
 	/etc/init.d/mysql restart
 
-### PHP 8.3
+### PHP 8.4
 Adiciona o repositorio
 
 	add-apt-repository ppa:ondrej/php -y
@@ -125,12 +125,12 @@ O retorno deve ser :
 ```
 PONG
 ```
-Instalar extensão do PHP 8.3
+Instalar extensão do PHP 8.4
 
-	sudo apt-get install php8.3-redis
+	sudo apt-get install php8.4-redis
 Reinicia o serviço
 	
-	service php8.3-fpm restart
+	service php8.4-fpm restart
 
 Adiciona o pacote pacote para usar o Laravel pode se conectar 
 	
@@ -263,7 +263,7 @@ Cole o script:
 		error_page 404 /index.php;
 
 		location ~ \.php$ {
-			fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
+			fastcgi_pass unix:/var/run/php/php8.4-fpm.sock;
 			fastcgi_index index.php;
 			fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
 			include fastcgi_params;
@@ -342,7 +342,7 @@ Instale os pacotes
 ### REINICIA OS SERVIÇOS
 	systemctl daemon-reload
 	systemctl reload nginx
-	service php8.3-fpm restart
+	service php8.4-fpm restart
 
 ### ATIVA O CRON DO SISTEMA
 	nano /etc/crontab
