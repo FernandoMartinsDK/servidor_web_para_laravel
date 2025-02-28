@@ -114,6 +114,10 @@ echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://pack
 sudo apt-get update
 sudo apt-get install redis
 ```
+Para o serviço do Redis iniciar sozinho caso o sistema venha a reiniciar
+	
+	sudo systemctl enable redis-server
+
 Para testar o redis executar o comando 
 	
 	redis-cli ping
