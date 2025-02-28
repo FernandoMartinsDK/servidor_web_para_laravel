@@ -70,12 +70,12 @@ Adiciona o repositorio
 	apt-get update
 Instala o PHP e as extensões referente
 
-	apt-get install php8.3 php8.3-dev php8.3-fpm php8.3-cli php8.3-xml -y --allow-unauthenticated
- 	apt install php8.3-{bcmath,xml,fpm,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbstring,pgsql,opcache,soap,cgi}
-	systemctl status php8.3-fpm
+	apt-get install php8.4 php8.4-dev php8.4-fpm php8.4-cli php8.4-xml -y --allow-unauthenticated
+ 	apt install php8.4-{bcmath,xml,fpm,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbstring,pgsql,opcache,soap,cgi}
+	systemctl status php8.4-fpm
 
 ###### Configura o PHP
-	nano /etc/php/8.3/fpm/php.ini
+	nano /etc/php/8.4/fpm/php.ini
 
 mudar os seguintes parâmetros
 
@@ -88,8 +88,8 @@ mudar os seguintes parâmetros
 
 Verifica se tem algum erro no arquivo e reinicia em seguida
 
-	php-fpm8.3 -t 
-	service php8.3-fpm restart
+	php-fpm8.4 -t 
+	service php8.4-fpm restart
 
 ### Composer
 Instala composer mais atual
