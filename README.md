@@ -247,8 +247,8 @@ Adiciona as portas ao firewall
 	sudo ufw allow 'Nginx HTTPS'
 
 ###### Dá permissão aos diretorios
-	sudo chown -R www-data.www-data /var/www/projeto/storage
-	sudo chown -R www-data.www-data /var/www/projeto/bootstrap/cache
+	sudo chown -R www-data:www-data /var/www/projeto/storage
+	sudo chown -R www-data:www-data /var/www/projeto/bootstrap/cache
 
 Caso tenha problemas permissão você pode usar:
 
