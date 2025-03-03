@@ -71,8 +71,12 @@ Adiciona o repositorio
 Instala o PHP e as extensões referente
 
 	apt-get install php8.4 php8.4-dev php8.4-fpm php8.4-cli php8.4-xml -y --allow-unauthenticated
- 	apt install php8.4-{bcmath,xml,fpm,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbstring,pgsql,opcache,soap,cgi}
-	systemctl status php8.4-fpm
+Instala outras extensões
+
+  	apt install php8.4-{bcmath,xml,fpm,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbstring,pgsql,opcache,soap,cgi}
+Verifica o status
+
+ 	systemctl status php8.4-fpm
 
 ###### Configura o PHP
 	nano /etc/php/8.4/fpm/php.ini
@@ -132,25 +136,12 @@ Reinicia o serviço
 	
 	service php8.4-fpm restart
 
-Adiciona o pacote pacote para usar o Laravel pode se conectar 
-	
-	composer require  predis/predis
 
-Abra o .env
-
-	nano /var/www/projeto/.env
-
-Altere os seguintes parametros para o seguinte
-```
-QUEUE_CONNECTION=redis
-CACHE_DRIVER=redis  
-SESSION_DRIVER=redis
-BROADCAST_DRIVER=redis
-```
 Caso o servidor seja reiniciado pode ser necessario inicializar novamente o serviço
 ```
 redis-server --daemonize yes
 ```
+
 
 ### NODE JS
 ###### a instalação foi baseado nesse [link](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04)
@@ -188,12 +179,10 @@ Instala o git
 	apt-get install git
 
 ###### Adicionar a chave ssh do servidor no git
-*(Baseado no link https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04-pt)*
 O primeiro passo é criar uma par de chaves na máquina do cliente
 
-	ssh-keygen -t rsa -b 4096 -C "seuEmail"
+	ssh-keygen -t ed25519 -C "meu-outro-projeto"
 
-Por padrão, as versões mais recentes do ssh-keygen criarão um par de chaves RSA de 3072 bits, que é seguro o suficiente para a maioria dos casos de uso (você pode usar o sinalizador `-b 4096` para criar uma chave maior de 4096 bits).
 Após digitar o comando, você deve ver o seguinte resultado:
 
 	Output
@@ -207,12 +196,13 @@ Basta ir apertando enter para para ir pulando as perguntas, por padrão o par de
 "Ativa" a chave publica 
 
 	eval "$(ssh-agent -s)"
-	ssh-add ~/.ssh/id_ed25519
-	cat ~/.ssh/id_ed25519.pub >> ~/.authorized_keys
+	ssh-add ~/.ssh/id_ed25519_outro_projeto
+
+Adicione a chave pública ao arquivo authorized_keys:
+
+	cat ~/.ssh/id_ed25519_outro_projeto.pub >> ~/.ssh/authorized_keys
 
 No github do projeto vá no `Settings` do projeto e procure por `Deploy Keys` na categoria de `Security`, então clique em `Add deploy key`. De um nome para a chave e cole ela
-
-
 
 ### NGNIX
 Instala o servidor web
