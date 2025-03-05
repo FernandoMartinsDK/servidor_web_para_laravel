@@ -261,6 +261,7 @@ Cole o script:
 
 	server {
 		listen 80;
+  		listen [::]:80;
 		server_name IP_DO_SERVIDOR DOMINIO_DO_SITE ;
 		root /var/www/projeto/public;
 		client_max_body_size 0;
