@@ -1,3 +1,4 @@
+
 # Servidor web para Laravel
 Esse tutorial tem como proposta fornecer um 'norte' no momento de configurar um servidor dedicado LINUX para uma aplicação Laravel.
 
@@ -323,14 +324,6 @@ Reinicie o serviço
 
 	sudo systemctl reload nginx
 
-
-### CERTIFICADO 
-###### Caso o projeto venha fazer uso de sub dominios é recomendado não utilizar essa opção pois ao tentar atualizar o certificado do subdominio pode vim apresentar erros
-*(baseado no link: https://www.linuxtuto.com/how-to-secure-nginx-with-lets-encrypt-on-ubuntu-22-04/)*
-
-	apt install certbot python3-certbot-nginx
-	certbot --nginx
-
 ### REINICIA OS SERVIÇOS
 	systemctl daemon-reload
 	systemctl reload nginx
@@ -348,6 +341,77 @@ verifica se a cron está funcionando
 
 	service cron start
 
+
+### CERTIFICADO  PADRÃO
+###### Caso o projeto venha fazer uso de sub dominios é recomendado não utilizar essa opção pois ao tentar atualizar o certificado do subdominio pode vim apresentar erros
+*(baseado no link: https://www.linuxtuto.com/how-to-secure-nginx-with-lets-encrypt-on-ubuntu-22-04/)*
+
+	apt install certbot python3-certbot-nginx
+	certbot --nginx
+
+### CERTIFICADO  COM SUB-DOMINIO + CLOUDFLARE
+Caso o projeto tenha sub-dominio e o DNS esteja **na cloudflare.**
+Na Cloudflare faça o seguinte:
+Em **DNS** → **Registros**  deixe o registros da seguinte maneira
+| Tipo | Nome | Conteúdo | Statusdo proxy | TTL
+|--|--|--|--|--|
+| A | * | ip_do_servidor | somente DNS | Auto
+| A | dominio.com.br | ip_do_servidor | somente DNS | Auto
+| CNAME | www | ip_do_servidor | somente DNS | Auto
+
+Agora vamos gerar um toquen de acesso para o servidor pode registrar o certificidados de forma automatica
+
+ 1. Acesse Cloudflare Dashboard.
+ 2. Vá até **Meu Perfil** (canto superior direito).
+ 3. Clique na aba **Tokens de API**.
+ 4. Clique em **Criar Token** e selecione **Custom Token**.
+ 5. Configure as permissões:
+ 	-   **Zone** → **DNS** → **Edit** (para editar os registros DNS)
+	-   **Zone** → **Zone** → **Read** (para ler as informações da zona)
+ 6. Escolha um escopo que inclua o domínio `dominio.com.br`.
+ 7. Gere o token e copie-o.
+<hr>
+Agora entre no servidor via ssh e faça o seguinte
+
+ 1. Instalar o Plugin da Cloudflare no Certbot
+	Como você usa Cloudflare para gerenciar os DNS, precisará instalar o plugin correspondente no Certbot:
+	
+		sudo apt update
+		sudo apt install python3-certbot-dns-cloudflare
+2.  Criar o Arquivo de Configuração para a Cloudflare
+
+		sudo nano /root/.cloudflare.ini
+
+ Adicione o seguinte conteúdo:
+
+	dns_cloudflare_api_token = SEU_TOKEN_AQUI
+
+Salve e depois defina as permissões corretas:
+
+	sudo chmod 600 /root/.cloudflare.ini
+
+3. Emitir o Certificado com Desafio DNS-01
+Agora execute o seguinte comando para gerar um novo certificado:
+
+		sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials /root/.cloudflare.ini -d dominio.com.br -d "*.dominio.com.br"
+
+	Se tudo correr bem, ele validará os domínios e gerará o certificado corretamente.
+
+4. Configurar a Renovação Automática
+Para garantir que o certificado seja renovado automaticamente, adicione o seguinte comando ao `crontab`:
+
+		sudo crontab -e
+
+	Adicione esta linha no final do arquivo:
+
+		0 3 1 * * certbot renew --dns-cloudflare --dns-cloudflare-credentials /root/.cloudflare.ini --quiet
+*Agora ele vai atualizar todo dia 1 de cada mês as 3 da manhã*
+
+Por fim basta reinicar o servidor web
+
+	sudo systemctl restart nginx
+
+Agora o wildcard (`*.dominio.com.br`) estará coberto pelo certificado e seus subdomínios vão funcionar corretamente
 ### ATUALIZAR O CÓDIGO
 Para atualizar o código do projeto  vá na pasta do sistema
 
